@@ -5,16 +5,20 @@
     tabindex="0"
     @click="toggle"
     @keydown.space.prevent="toggle"
-    :aria-checked="value.toString()"
+    :aria-checked="toggled.toString()"
   ></span>
 </template>
 
 <script>
 export default {
-  props: ["value"],
+  model: {
+    prop: "toggled",
+    event: "toggle",
+  },
+  props: ["toggled"],
   methods: {
     toggle() {
-      this.$emit("input", !this.value);
+      this.$emit("toggle", !this.toggled);
     },
   },
 };
