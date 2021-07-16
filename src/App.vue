@@ -1,19 +1,26 @@
 <template>
   <div class="min-h-screen bg-grey-darker p-8">
     <div class="max-w-sm mx-auto">
-      <user-settings-form></user-settings-form>
+      <date-picker v-model="date" :options="{ firstDay: 1 }"></date-picker>
     </div>
   </div>
 </template>
 
 <script>
-import UserSettingsForm from "./components/UserSettingsForm.vue"
+import DatePicker from "./components/DatePicker.vue";
 
 export default {
   components: {
-    UserSettingsForm
-  }
-}
+    DatePicker,
+  },
+  data() {
+    return {
+      date: "2021-07-16",
+    };
+  },
+};
 </script>
 
-<style src="./assets/css/app.css"/>
+<style>
+@import "./assets/css/app.css";
+</style>
