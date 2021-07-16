@@ -1,26 +1,31 @@
 <template>
-  <div class="min-h-screen bg-grey-darker p-8">
-    <div class="max-w-sm mx-auto">
-      <date-picker v-model="date" :options="{ firstDay: 1 }"></date-picker>
+  <div>
+    <div class="min-h-screen flex items-center justify-center">
+      <button @click="modalOpen = true" type="button" class="btn btn-blue">
+        Open Modal
+      </button>
     </div>
+
+    <announcement-modal
+      :show="modalOpen"
+      @close="modalOpen = false"
+    ></announcement-modal>
   </div>
 </template>
 
 <script>
-import DatePicker from "./components/DatePicker.vue";
+import AnnouncementModal from "./components/AnnouncementModal.vue";
 
 export default {
   components: {
-    DatePicker,
+    AnnouncementModal,
   },
   data() {
     return {
-      date: "2021-07-16",
+      modalOpen: false,
     };
   },
 };
 </script>
 
-<style>
-@import "./assets/css/app.css";
-</style>
+<style src="./assets/css/app.css" />
